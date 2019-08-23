@@ -252,7 +252,7 @@ class InMemoryStorage(base.BaseStorage):
 
         self._check_study_id(study_id)
         with self._lock:
-            return copy.deepcopy(self.trials)
+            return self.trials
 
     def get_n_trials(self, study_id, state=None):
         # type: (int, Optional[structs.TrialState]) -> int

@@ -427,7 +427,7 @@ class Study(BaseStudy):
             # environments (e.g., services that use computing containers such as CircleCI).
             # Please refer to the following PR for further details:
             # https://github.com/pfnet/optuna/pull/325.
-            gc.collect()
+            pass
 
         try:
             result = float(result)
