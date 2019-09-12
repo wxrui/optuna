@@ -109,6 +109,9 @@ class UniformDistribution(
                              "(low={}, high={}).".format(low, high))
 
         return super(UniformDistribution, cls).__new__(cls, low, high)
+    
+    def __deepcopy__(self, obj):
+        return self
 
     def single(self):
         # type: () -> bool
@@ -148,6 +151,9 @@ class LogUniformDistribution(
                              "(low={}, high={}).".format(low, high))
 
         return super(LogUniformDistribution, cls).__new__(cls, low, high)
+
+    def __deepcopy__(self, obj):
+        return self
 
     def single(self):
         # type: () -> bool
@@ -189,6 +195,9 @@ class DiscreteUniformDistribution(
                              "(low={}, high={}, q={}).".format(low, high, q))
 
         return super(DiscreteUniformDistribution, cls).__new__(cls, low, high, q)
+        
+    def __deepcopy__(self, obj):
+        return self
 
     def single(self):
         # type: () -> bool
@@ -225,6 +234,9 @@ class IntUniformDistribution(
                              "(low={}, high={}).".format(low, high))
 
         return super(IntUniformDistribution, cls).__new__(cls, low, high)
+        
+    def __deepcopy__(self, obj):
+        return self
 
     def to_external_repr(self, param_value_in_internal_repr):
         # type: (float) -> int
@@ -268,6 +280,11 @@ class CategoricalDistribution(
             raise ValueError("The `choices` must contains one or more elements.")
 
         return super(CategoricalDistribution, cls).__new__(cls, choices)
+
+        
+    def __deepcopy__(self, obj):
+        return self
+
 
     def to_external_repr(self, param_value_in_internal_repr):
         # type: (float) -> Union[float, str]
